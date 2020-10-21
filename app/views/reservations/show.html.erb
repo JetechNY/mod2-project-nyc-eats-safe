@@ -1,0 +1,11 @@
+<h1>Reservation for <%= @reservation.user.name%></h1> 
+<h3>Reservation on <%= @reservation.date.strftime("%A, %B %d, %Y") %> at <%= @reservation.time.strftime("%H:%M %p")%> </h3>
+
+Restaurant: <%=@reservation.restaurant.name %> <br>
+Phone #: <%=@reservation.restaurant.phone %> <br>
+Address: <%=@reservation.restaurant.address %> <br>
+Party Size: <%=@reservation.party_size %> <br>
+
+<%= button_to "Edit Reservation", edit_reservation_path(@reservation), method: :get%>
+<br>
+<%= button_to "Delete Reservation", reservation_path(@reservation), method: :delete %>

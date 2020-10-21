@@ -1,0 +1,29 @@
+<% if flash[:my_errors] %>
+  <% flash[:my_errors].each do |error| %>
+    <p style="color:red;"><%= error %></p>
+  <% end %>
+<% end %>
+
+<% if flash[:not_authorized] %>
+    <p><%= flash[:not_authorized] %></p>
+<% end %>
+
+
+
+<%= form_for @user do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+
+    <%= f.label :password %>
+    <%= f.password_field :password %><br>
+
+    <%= f.label :address %>
+    <%= f.text_field :address %><br>
+
+    <%= f.label :phone %>
+    <%= f.text_field :phone%><br>
+
+    <%= f.label "Have you or anyone you have been in contact tested postive for covid within the last 2 weeks" %> <br />
+    <%= f.check_box :covid_status %> <br />
+    <%= f.submit %>
+<% end %>

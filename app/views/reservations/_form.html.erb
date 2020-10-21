@@ -1,0 +1,30 @@
+
+<% if flash[:my_errors] %>
+  <% flash[:my_errors].each do |error| %>
+    <p style="color:red;"><%= error %></p>
+  <% end %>
+<% end %>
+
+
+<%= form_for @reservation do |f|%>
+
+<%= f.label :restaurant %> 
+<%= f.collection_select :restaurant_id, Restaurant.all, :id, :name %> <br>
+
+<%= f.label :date %> 
+<%= f.date_field :date, min: Date.today, max: Date.today + 365, as: :date, value: f.object.try(:strftime,"%m/%d/%Y"), class: 'form-control' %>
+<br>
+<%= f.label :time %>
+<%= f.time_select :time,  {:minute_step => 30 , :ampm => true}%> <br>
+
+<%= f.label :party_size %> 
+<%= f.number_field :party_size %> <br>
+
+<%= f.submit %> <br>
+<br>
+<%#Add remove reservation button %>
+
+<%# f.label :date %> <br>
+<%# f.date_select :date, {order: [:month, :day, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }, start_year: Date.today.year + 1, end_year: Date.today.year}, {required: true}%> <br>
+<%# %A %B %d, %Y - %I:%M%P %> 
+<% end %>

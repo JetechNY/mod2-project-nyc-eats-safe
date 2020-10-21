@@ -1,0 +1,28 @@
+<% if flash[:success] %>
+  <h2 style="color:green;"><%= flash[:success] %></h2>
+<% end %>
+
+<% if flash[:warning] %>
+    <h2 style="color:red;"><%= flash[:warning] %></h2>
+<% end %>
+
+<h1><%= @user.name %></h1> 
+Phone #: <%=@user.phone %> <br>
+Address: <%=@user.address %> <br>
+
+
+<%# add covid alert button, turns covid status true %>
+
+<h2> My reservations! </h2>
+<% @user.reservations.each do |reservation|%>
+<ul>
+<li>
+<%= link_to reservation.restaurant.name, reservation_path(reservation)%>
+on <%= reservation.date.strftime("%B %d, %Y")%>
+@ <%= reservation.time.strftime("%I:%M %p")%> <%# covert time integer to human readable time %>
+</li>
+</ul>
+
+<% end %>
+
+<%= button_to "Update My Info", edit_user_path(@user), method: :get%>
