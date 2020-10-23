@@ -1,10 +1,8 @@
-
 <% if flash[:my_errors] %>
   <% flash[:my_errors].each do |error| %>
     <p style="color:red;"><%= error %></p>
   <% end %>
 <% end %>
-
 
 <%= form_for @reservation do |f|%>
 
@@ -22,9 +20,5 @@
 
 <%= f.submit %> <br>
 <br>
-<%#TODO: Add remove reservation button %>
 
-<%# f.label :date %> <br>
-<%# f.date_select :date, {order: [:month, :day, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }, start_year: Date.today.year + 1, end_year: Date.today.year}, {required: true}%> <br>
-<%# %A %B %d, %Y - %I:%M%P %> 
 <% end %>

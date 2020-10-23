@@ -1,7 +1,7 @@
 <h1><%= @restaurant.name %></h1> 
 
 <%if @restaurant.recent_users_covid_status.any?(true) %>
-<h3 style="color:red;"> WARNING: A recent patron has contracted COVID. Please contact a physician if you've visited us within the past 2 weeks.</h3>
+<h3 style="color:red;"> WARNING: A recent patron has contracted or been in close proximity with someone with COVID-19. Please contact a physician if you've visited us within the past 2 weeks.</h3>
 <%end%>
 
 Cuisine: <%=@restaurant.cuisine %> <br>

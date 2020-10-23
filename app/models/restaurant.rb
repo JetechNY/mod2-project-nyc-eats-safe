@@ -6,8 +6,6 @@ class Restaurant < ApplicationRecord
     has_many :users, through: :reservations
     has_many :dishes, through: :menus
 
-  
-
     def recent_reservations 
         self.reservations.select {|reservation| reservation.date > Time.now - 14.day && reservation.date < Time.now}
     end     

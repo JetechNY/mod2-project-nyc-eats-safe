@@ -2,10 +2,8 @@ class ReservationsController < ApplicationController
     before_action :find_reservations, only: [:edit, :update, :show, :destroy]
 
     def show 
-
     end 
 
-    
     def new 
         @reservation = Reservation.new 
     end 

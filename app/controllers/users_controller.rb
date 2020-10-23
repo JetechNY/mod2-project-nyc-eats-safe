@@ -2,7 +2,6 @@ class UsersController < ApplicationController
     before_action :find_users, only: [:show, :edit, :destroy, :covid_positive]
     skip_before_action :authorized?, only: [:new, :create]
     
-
     def index 
         @users = User.all
     end 
@@ -19,7 +18,6 @@ class UsersController < ApplicationController
             flash[:warning] = "Thank you for notifying us. We've cancelled all your upcoming reservations. Please rebook when you're better!"
     
           end 
-
     end 
 
     def new 
@@ -61,7 +59,7 @@ class UsersController < ApplicationController
         @user.covid_status = true
         @user.save
         redirect_to user_path(@user)
-      end
+    end
 
     private
     

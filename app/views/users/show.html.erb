@@ -1,4 +1,3 @@
-
 <body>
 <% if flash[:success] %>
   <h2 style="color:green;"><%= flash[:success] %></h2>
@@ -13,17 +12,12 @@ Email: <%=@user.email %> <br>
 Phone #: <%=@user.phone %> <br>
 Address: <%=@user.address %> <br>
 
-
-<%# add covid alert button, turns covid status true %>
-
-
-
 <h2> Upcoming Reservations </h2>
   <% @user.upcoming_reservation.each do |reservation|%>
 
   <%= link_to reservation.restaurant.name, reservation_path(reservation)%>
   on <%= reservation.date.strftime("%B %d, %Y")%> -
-  <%= reservation.time.strftime("%I:%M %p")%> <%# covert time integer to human readable time %>
+  <%= reservation.time.strftime("%I:%M %p")%> <br><%# covert time integer to human readable time %>
 <% end %>
 
 <h2> Past Reservations </h2>

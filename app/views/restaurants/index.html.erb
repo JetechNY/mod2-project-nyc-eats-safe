@@ -1,23 +1,18 @@
 <body>
 <h1> Restaurants </h1>
 
-
-  <%= form_tag restaurants_path, method: :get do %>
- <%= label_tag  "Search for a restaurant by cuisine:" %>
+<%= form_tag restaurants_path, method: :get do %>
+  <%= label_tag  "Search for a restaurant by cuisine:" %>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", name: nil %>
   <% end %>
 <br>
 
-
 <% @restaurant.each do |restaurant| %>
-
 
 <b> <%= link_to restaurant.name, restaurant_path(restaurant) %> <br>
 Address: <%= restaurant.address %> <br>
 Cuisine: <%= restaurant.cuisine %> <br>
-
-
 </b>
 <br>
 <% end %>
