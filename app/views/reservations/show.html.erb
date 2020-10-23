@@ -1,7 +1,7 @@
 <h1>Reservation for <%= @reservation.user.name%></h1> 
 <h3>Reservation on <%= @reservation.date.strftime("%A, %B %d, %Y") %> at <%= @reservation.time.strftime("%H:%M %p")%> </h3>
 
-Restaurant: <%=@reservation.restaurant.name %> <br>
+Restaurant: <%=link_to @reservation.restaurant.name, restaurant_path(@reservation.restaurant) %> <br>
 Phone #: <%=@reservation.restaurant.phone %> <br>
 Address: <%=@reservation.restaurant.address %> <br>
 Party Size: <%=@reservation.party_size %> <br>

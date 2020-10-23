@@ -1,3 +1,5 @@
+
+<body>
 <% if flash[:success] %>
   <h2 style="color:green;"><%= flash[:success] %></h2>
 <% end %>
@@ -7,22 +9,32 @@
 <% end %>
 
 <h1><%= @user.name %></h1> 
+Email: <%=@user.email %> <br>
 Phone #: <%=@user.phone %> <br>
 Address: <%=@user.address %> <br>
 
 
 <%# add covid alert button, turns covid status true %>
 
-<h2> My reservations! </h2>
-<% @user.reservations.each do |reservation|%>
-<ul>
-<li>
-<%= link_to reservation.restaurant.name, reservation_path(reservation)%>
-on <%= reservation.date.strftime("%B %d, %Y")%>
-@ <%= reservation.time.strftime("%I:%M %p")%> <%# covert time integer to human readable time %>
-</li>
-</ul>
 
+
+<h2> Upcoming Reservations </h2>
+  <% @user.upcoming_reservation.each do |reservation|%>
+
+  <%= link_to reservation.restaurant.name, reservation_path(reservation)%>
+  on <%= reservation.date.strftime("%B %d, %Y")%> -
+  <%= reservation.time.strftime("%I:%M %p")%> <%# covert time integer to human readable time %>
 <% end %>
 
+<h2> Past Reservations </h2>
+  <% @user.past_reservation.each do |reservation|%>
+
+  <%= link_to reservation.restaurant.name, reservation_path(reservation)%>
+  on <%= reservation.date.strftime("%B %d, %Y")%> -
+  <%= reservation.time.strftime("%I:%M %p")%> <br><%# covert time integer to human readable time %>
+  <% end %>
+
+<br>
 <%= button_to "Update My Info", edit_user_path(@user), method: :get%>
+
+</body>

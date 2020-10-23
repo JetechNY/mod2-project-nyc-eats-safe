@@ -5,7 +5,8 @@ class Reservation < ApplicationRecord
   validates :restaurant_id, :party_size, :date, presence: true 
   validates :party_size, numericality: { greater_than_or_equal_to:1, less_than_or_equal_to: 6 }
   
-  # validates_associated :user 
+  # FIXME: validates_associated :user 
 
-  
+
+
 end

@@ -4,9 +4,9 @@ class RestaurantsController < ApplicationController
     def index
         # @restaurants = Restaurant.all
         if params[:search].present?
-            @restaurant = Restaurant.where('cuisine LIKE ?', params[:search]) 
+            @restaurant = Restaurant.where('cuisine LIKE ?', params[:search]).paginate(page: params[:page], per_page: 5)
         else
-            @restaurant = Restaurant.all
+            @restaurant = Restaurant.paginate(page: params[:page], per_page: 15)
         end
 
     end 

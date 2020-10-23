@@ -1,3 +1,67 @@
 
 // @import "bootstrap-sprockets";
 // @import "bootstrap";
+
+#banner {
+    height: auto;
+    text-align: center;
+    line-height: 300px;
+    max-width: 100%;
+    color: rgb(78, 123, 153);
+    font-family: fantasy;
+    font-size: large;
+    // position: -webkit-sticky; /* Safari */
+    // position: sticky;
+    // top: 0;
+    // margin: 10px auto;
+    // display: flex;
+    // position: center;
+    background-repeat : no-repeat;
+    background-size: contain;
+    background-position: center ;
+    background-image: url("https://i.pinimg.com/originals/df/90/7f/df907ff72483dcee2370f294fc9f03dc.jpg ")
+}
+
+.nav {
+    background-color: #fae9a0;
+    height: 40px;
+    width: 100%;
+    text-align: center;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+  
+}
+
+.nav li {
+     /* border: 1px solid black; */
+    
+     display: inline-block;
+     line-height: 40px;
+     padding: 0px 15px;
+     margin: 0px;
+     text-decoration: none;
+     color:  rgb(78, 123, 153);
+     font-weight: 800;
+     font-family: "Trebuchet MS";
+  
+   }
+  
+   .nav li:hover {
+     background-color: white; 
+     transition: 1s;
+     border-radius: 20px 
+   }
+  
+   .nav li a {
+    text-decoration: none;
+    color:  rgb(78, 123, 153);
+    font-weight: 800;
+  }
+
+  body{ 
+  text-align: center; 
+  font-family: "Trebuchet MS";
+  }
+  
+  

@@ -1,13 +1,20 @@
 <h1><%= @restaurant.name %></h1> 
 
+<%if @restaurant.recent_users_covid_status.any?(true) %>
+<h3 style="color:red;"> WARNING: A recent patron has contracted COVID. Please contact a physician if you've visited us within the past 2 weeks.</h3>
+<%end%>
+
 Cuisine: <%=@restaurant.cuisine %> <br>
 Phone #: <%=@restaurant.phone %> <br>
 Address: <%=@restaurant.address %> <br>
 
-<h2> Our dishes! </h2> 
+<h2> Our Dishes </h2> 
 <% @restaurant.menus.each do |menu|%>
 <%= menu.dish.name %>: $<%= menu.price %> <br>
 <%end %>
+
+
+
 
 
 

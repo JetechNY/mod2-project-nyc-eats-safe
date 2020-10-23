@@ -1,17 +1,36 @@
-<h1>User Login</h1>
+<!DOCTYPE html>
+<html>
 
-<% if flash[:error] %>
-  <p><%= flash[:error] %></p>
-<% end %>
+ 
 
-<%= form_for :session do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name  %> <br>
+<head>
 
-  <%= f.label :password %>
-  <%= f.text_field :password %> <br>
+</head>
 
-  <%= f.submit "Login" %>
+
+  <body id="name">
+
+    <div>
+      <h1>User Login</h1>
+    </div>
+
+    <% if flash[:error] %>
+      <p><%= flash[:error] %></p>
+    <% end %>
+
+    <%= form_for :session do |f| %>
+      <%= f.label :email %>
+      <%= f.text_field :email  %> <br>
+
+      <%= f.label :password %>
+      <%= f.text_field :password %> <br>
 
   
-<% end %>
+      <%= f.submit "Login" %>
+
+    <% end %>
+
+      <%= yield %>
+
+  </body>
+</html>

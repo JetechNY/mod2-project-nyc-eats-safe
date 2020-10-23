@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
 
+gem 'will_paginate', '~> 3.3.0'
 gem 'http'
 gem 'excon'
 gem 'faker'

@@ -15,7 +15,7 @@ class UsersController < ApplicationController
           end 
 
           if @current_user.covid_status == true 
-            @current_user.reservations.destroy_all
+            @current_user.upcoming_reservation.each(&:destroy)
             flash[:warning] = "Thank you for notifying us. We've cancelled all your upcoming reservations. Please rebook when you're better!"
     
           end 
@@ -70,7 +70,7 @@ class UsersController < ApplicationController
     end 
 
     def user_params 
-        params.require(:user).permit(:name, :password, :address, :phone, :covid_status)
+        params.require(:user).permit(:name, :password, :address, :phone, :covid_status, :email)
     end 
 
 end

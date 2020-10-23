@@ -10,17 +10,28 @@
   </head>
 
   <body>
+      <div id="banner">
+        <h1>NYC EATS SAFE</h1>
+        
+      </div>
+
     <ul class="nav">
-    <li><a href="<%= restaurants_path %>">Restaurants</a></li>
+    
      
       <% if @current_user %>
         <li class="right">Welcome <%= @current_user.name %>!</li>
+        
+        <li><a href="<%= user_path(@current_user) %>">Your Profile</a></li>
+        
         <li><a href="<%= new_reservation_path %>">Create Reservation</a></li>
-        <li><a href="<%= user_path(@current_user) %>">Check your info!</a></li>
+        
+        <li><a href="<%= restaurants_path %>">Our Approved Restaurants</a></li>
+        
         <li class="right"><%= link_to "Log Out", logout_path, method: :delete %></li>
+        
       <% else %>
-        <li class="right"><a href="<%= new_user_path %>">Sign Up!</a></li>
-        <li class="right"><a href="<%= new_login_path %>">Login!</a></li>
+        <li class="right"><a href="<%= new_user_path %>">Sign Up</a></li>
+        <li class="right"><a href="<%= new_login_path %>">Login</a></li>
       <% end %>
     </ul>
 

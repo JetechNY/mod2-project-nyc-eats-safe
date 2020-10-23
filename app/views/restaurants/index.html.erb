@@ -1,3 +1,4 @@
+<body>
 <h1> Restaurants </h1>
 
 
@@ -8,8 +9,18 @@
   <% end %>
 <br>
 
+
 <% @restaurant.each do |restaurant| %>
-<%= link_to restaurant.name, restaurant_path(restaurant) %> 
-<%= restaurant.address %> <br>
+
+
+<b> <%= link_to restaurant.name, restaurant_path(restaurant) %> <br>
+Address: <%= restaurant.address %> <br>
+Cuisine: <%= restaurant.cuisine %> <br>
+
+
+</b>
+<br>
 <% end %>
+<%= will_paginate(@restaurant) %>
+</body>
 
